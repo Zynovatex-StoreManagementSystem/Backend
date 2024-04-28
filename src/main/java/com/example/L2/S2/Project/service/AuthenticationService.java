@@ -13,14 +13,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-
 @Service
 @RequiredArgsConstructor
 @Data
 public class AuthenticationService {
     private final UserRepository userRepository;
-    public AuthenticationManager authenticationManager;
+    public  AuthenticationManager authenticationManager;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
@@ -37,13 +35,6 @@ public class AuthenticationService {
         var user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
         var jwt = jwtService.generateToken(user);
-        return JwtAuthenticationResponse.builder().token(jwt).build();
-    }
-
-    public JwtAuthenticationResponse adminSignup(SignUpRequest request) {
-        var admin = User.builder().name(request.getName()).email(request.getEmail()).password(passwordEncoder.encode(request.getPassword())).role(Role.Admin).build();
-        userRepository.save(admin);
-        var jwt = jwtService.generateToken(admin);
         return JwtAuthenticationResponse.builder().token(jwt).build();
     }
 }
