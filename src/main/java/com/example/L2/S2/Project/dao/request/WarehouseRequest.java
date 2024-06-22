@@ -9,12 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductRequest {
+public class WarehouseRequest {
     private Long id;
-    private String name;
-    private String description;
-    private String brand;
-    private Long category;
-    private double price;
-    private String imageUrl;
+    private String location;
+    private String managerId;
+    private String managerName;
 }

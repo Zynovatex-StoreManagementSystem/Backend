@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderItemRequest {
+public class ProductStockSummaryRequest {
     private Long productId;
-    private int quantity;
+    private String productName;
+    private String categoryName;
+    private String imageURL;
+    private Long fullStock;
+    private Long availableStock;
 }

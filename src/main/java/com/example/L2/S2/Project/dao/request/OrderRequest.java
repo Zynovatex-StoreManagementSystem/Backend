@@ -18,4 +18,3 @@ public class OrderRequest {
     private LocalDate returnDate;
     private List<OrderItemRequest> orderItems;
 }
-

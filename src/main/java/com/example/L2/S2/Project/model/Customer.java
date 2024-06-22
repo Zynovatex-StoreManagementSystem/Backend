@@ -24,4 +24,3 @@ public class Customer {
     private LocalDateTime createdAt;
     private String address;
 }
-

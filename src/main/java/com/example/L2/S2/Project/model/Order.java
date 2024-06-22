@@ -17,9 +17,13 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    // @ManyToOne
+    // @JoinColumn(name = "customer_id")
+    // private Customer customer;
+
     @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @JoinColumn(name = "user_id")
+    private User user;
     @ManyToOne
     @JoinColumn(name = "driver_id")
     private Driver driver;
@@ -28,8 +32,9 @@ public class Order {
     private LocalDateTime CreateAt;
     private LocalDate returnDate;
 
-    public Order() {this.orderItems = new ArrayList<>();}
-
+    public Order() {
+        this.orderItems = new ArrayList<>();
+    }
 
     public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);
@@ -40,6 +45,5 @@ public class Order {
         orderItems.remove(orderItem);
         orderItem.setOrder(null);
     }
-
 
 }

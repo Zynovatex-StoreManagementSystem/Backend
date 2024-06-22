@@ -1,15 +1,15 @@
 package com.example.L2.S2.Project.dao.request;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderItemRequest {
+public class StockRequest {
+    private Long stockId;
     private Long productId;
-    private int quantity;
+    private int availableStock;
+    private int fullStock;
 }

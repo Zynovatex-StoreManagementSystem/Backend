@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DriverRequest {
     private String name;
+    private String email;
     private int phone;
 }

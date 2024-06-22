@@ -8,13 +8,10 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 @Entity
 @Table(name = "driver")
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 
 public class Driver {
 
@@ -22,13 +19,14 @@ public class Driver {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String email;
     private int phone;
 
-    @OneToMany(mappedBy = "deliver", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DeliverDetails> details;
 
     public Driver() {
-        this.details = new ArrayList<>();
+
     }
 
     public void addOrder(DeliverDetails detail) {
